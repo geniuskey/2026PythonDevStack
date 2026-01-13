@@ -1,0 +1,166 @@
+site_name: 파이썬 라이브러리 완벽 가이드 2026
+site_description: 2026년 기준으로 다시 정리한 파이썬 생태계의 완전한 지도
+site_author: Python Community
+site_url: https://geniuskey.github.io/2026PythonDevStack/
+
+# Repository
+repo_name: geniuskey/2026PythonDevStack
+repo_url: https://github.com/geniuskey/2026PythonDevStack
+edit_uri: edit/main/python-library-book/
+
+# Copyright
+copyright: Copyright &copy; 2026 Python Library Guide
+
+# Configuration
+theme:
+  name: material
+  language: ko
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 다크 모드로 전환
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 라이트 모드로 전환
+  font:
+    text: Noto Sans KR
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - toc.follow
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+
+# Plugins
+plugins:
+  - search:
+      lang:
+        - ko
+        - en
+  - tags
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
+docs_dir: python-library-book
+
+nav:
+  - 홈: README.md
+
+  - 시작하기:
+    - 01-introduction/prologue.md
+    - 01-introduction/how-to-use.md
+    - 01-introduction/rating-system.md
+
+  - 2026 표준 스택:
+    - 02-modern-stack-2026/overview.md
+    - 02-modern-stack-2026/project-packaging.md
+    - 02-modern-stack-2026/code-quality.md
+    - 02-modern-stack-2026/testing.md
+    - 02-modern-stack-2026/web-api.md
+    - 02-modern-stack-2026/async-io.md
+    - 02-modern-stack-2026/observability.md
+    - 02-modern-stack-2026/data-processing.md
+    - 02-modern-stack-2026/llm-apps.md
+
+  - 문제 해결 가이드:
+    - 03-problem-solving-guides/api-server.md
+    - 03-problem-solving-guides/package-deployment.md
+    - 03-problem-solving-guides/llm-service.md
+    - 03-problem-solving-guides/data-pipeline.md
+    - 03-problem-solving-guides/automation.md
+
+  - 라이브러리 카탈로그:
+    - 04-library-catalog/README.md
+    - 웹 개발: 04-library-catalog/web-development/README.md
+    - 데이터 과학: 04-library-catalog/data-science/README.md
+    - 머신러닝 & AI: 04-library-catalog/machine-learning/README.md
+    - 시스템 & 자동화: 04-library-catalog/system-automation/README.md
+    - 문서 처리: 04-library-catalog/document-processing/README.md
+    - 멀티미디어: 04-library-catalog/multimedia/README.md
+    - 네트워킹: 04-library-catalog/networking/README.md
+    - 보안 & 암호화: 04-library-catalog/security/README.md
+    - 유틸리티: 04-library-catalog/utilities/README.md
+
+# Extra
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/geniuskey/2026PythonDevStack
+
+  analytics:
+    feedback:
+      title: 이 페이지가 도움이 되었나요?
+      ratings:
+        - icon: material/thumb-up-outline
+          name: 도움이 되었습니다
+          data: 1
+          note: >-
+            피드백 감사합니다!
+        - icon: material/thumb-down-outline
+          name: 개선이 필요합니다
+          data: 0
+          note: >-
+            피드백 감사합니다! GitHub 이슈로 개선 제안을 남겨주세요.
+
+# Extra CSS
+extra_css:
+  - stylesheets/extra.css
