@@ -94,7 +94,7 @@ $ uv add --dev pytest pytest-asyncio
 
 ---
 
-## STEP 1: Extract (데이터 추출)
+## Extract (데이터 추출)
 
 ### 패턴 1: CSV/Parquet 파일 읽기
 
@@ -286,7 +286,7 @@ class UnifiedExtractor:
 
 ---
 
-## STEP 2: Transform (데이터 변환)
+## Transform (데이터 변환)
 
 ```mermaid
 graph TD
@@ -569,7 +569,7 @@ class DataQualityValidator:
 
 ---
 
-## STEP 3: Load (데이터 적재)
+## Load (데이터 적재)
 
 ### 패턴 1: Parquet 파일로 저장
 
@@ -722,7 +722,7 @@ class DuckDBWarehouse:
 
 ---
 
-## STEP 4: Orchestration (오케스트레이션)
+## Orchestration (오케스트레이션)
 
 ```mermaid
 graph TD
@@ -941,7 +941,7 @@ defs = Definitions(
 
 ---
 
-## STEP 5: 모니터링 및 로깅
+## 모니터링 및 로깅
 
 ### structlog 설정
 
@@ -1175,15 +1175,16 @@ with engine.begin() as conn:
 
 ---
 
-## 요약
+## 마무리
 
-이 가이드를 통해 구축한 ETL 파이프라인:
+여기까지 하면 기본적인 ETL 파이프라인은 완성입니다. Polars와 DuckDB를 쓰면 pandas보다 확실히 빠르고, Dagster로 워크플로우를 관리하면 나중에 복잡해져도 유지보수가 쉽습니다.
 
-✅ **고성능**: Polars + DuckDB로 pandas 대비 10배 빠름
-✅ **확장 가능**: Dagster로 복잡한 워크플로우 관리
-✅ **모니터링**: structlog로 모든 작업 추적
-✅ **품질 보증**: 자동화된 데이터 검증
-✅ **프로덕션 준비**: Docker, 에러 처리, 재시도
+실전에서 자주 겪는 문제들:
+- 메모리 부족: Lazy evaluation이나 청크 처리로 해결
+- 데이터 품질: 검증 로직을 미리 넣어두면 나중에 디버깅이 훨씬 쉬움
+- 실패한 작업 재처리: Dagster가 기본적으로 지원하긴 하지만, 멱등성을 고려해서 파이프라인을 짜야 함
+
+Airflow랑 비교하면 Dagster가 훨씬 현대적이고 타입 체크도 되는데, 이미 Airflow 쓰고 있다면 굳이 바꿀 필요는 없습니다.
 
 ---
 

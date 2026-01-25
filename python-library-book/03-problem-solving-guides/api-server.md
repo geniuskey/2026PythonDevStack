@@ -2,7 +2,7 @@
 
 ## 목표
 
-RESTful API 서버를 처음부터 프로덕션 준비 상태까지 구축하기 - 인증, 데이터베이스, 캐싱, 모니터링을 포함한 완전한 백엔드 시스템
+FastAPI로 기본적인 RESTful API 서버를 만들어봅니다. JWT 인증, PostgreSQL 연동, Redis 캐싱까지 포함해서 실제 프로젝트에 바로 쓸 수 있는 수준으로 만들어볼게요.
 
 ---
 
@@ -49,9 +49,9 @@ graph TD
 
 ---
 
-## PART 1: 프로젝트 설정
+## 프로젝트 설정
 
-### 1. 프로젝트 초기화
+### 프로젝트 초기화
 
 ```bash
 # 프로젝트 생성
@@ -133,7 +133,7 @@ myapi/
 
 ---
 
-## PART 2: 설정 관리
+## 설정 관리
 
 ```python
 # src/myapi/config.py
@@ -207,7 +207,7 @@ ALLOWED_ORIGINS=["http://localhost:3000","http://localhost:5173"]
 
 ---
 
-## PART 3: 데이터베이스 설정
+## 데이터베이스 설정
 
 ```python
 # src/myapi/database.py
@@ -311,7 +311,7 @@ target_metadata = Base.metadata
 
 ---
 
-## PART 4: Pydantic 스키마
+## Pydantic 스키마
 
 ```python
 # src/myapi/schemas/user.py
@@ -376,7 +376,7 @@ class ItemResponse(ItemBase):
 
 ---
 
-## PART 5: 인증 시스템
+## 인증 시스템
 
 ```mermaid
 graph LR
@@ -599,7 +599,7 @@ async def get_current_active_superuser(
 
 ---
 
-## PART 6: 라우터 구현
+## 라우터 구현
 
 ### 인증 라우터
 
@@ -877,7 +877,7 @@ async def delete_item(
 
 ---
 
-## PART 7: 메인 애플리케이션
+## 메인 애플리케이션
 
 ```python
 # src/myapi/main.py
@@ -999,7 +999,7 @@ async def root():
 
 ---
 
-## PART 8: 캐싱
+## 캐싱
 
 ```python
 # src/myapi/utils/cache.py
@@ -1078,7 +1078,7 @@ async def list_items_cached(
 
 ---
 
-## PART 9: 테스트
+## 테스트
 
 ```python
 # tests/conftest.py
@@ -1177,7 +1177,7 @@ async def test_login(client):
 
 ---
 
-## PART 10: 프로덕션 배포
+## 프로덕션 배포
 
 ### Docker
 
@@ -1311,16 +1311,17 @@ server {
 
 ---
 
-## 요약
+## 마무리
 
-이 가이드로 구축한 API 서버:
+여기까지 하면 기본적인 API 서버는 완성입니다. JWT 인증, 비동기 DB, Redis 캐싱까지 들어갔으니 웬만한 프로젝트는 이걸로 시작할 수 있습니다.
 
-✅ **완전한 인증 시스템**: JWT + Refresh Token
-✅ **비동기 데이터베이스**: SQLAlchemy 2.0 + PostgreSQL
-✅ **캐싱**: Redis로 성능 최적화
-✅ **타입 안전**: Pydantic + mypy
-✅ **테스트**: pytest로 자동화된 테스트
-✅ **프로덕션 준비**: Docker + NGINX + 모니터링
+실제 프로덕션에 올리려면 더 신경 쓸 게 많긴 합니다:
+- Rate limiting은 slowapi 쓰면 쉽게 추가 가능
+- 제대로 된 모니터링 (Sentry, Prometheus 등)
+- 로그 수집 및 분석 시스템
+- DB 자동 백업
+
+하지만 일단 MVP 만들기엔 충분하고, 필요할 때 하나씩 추가하면 됩니다. 참고로 이 구조는 제가 실제로 쓰는 패턴인데, 팀마다 스타일이 다를 수 있으니 참고만 하세요.
 
 ---
 

@@ -101,7 +101,7 @@ $ uv add --dev pytest pytest-asyncio
 
 ---
 
-## PART 1: 스케줄링 자동화
+## 스케줄링 자동화
 
 ```mermaid
 graph LR
@@ -338,7 +338,7 @@ class ConditionalScheduler:
 
 ---
 
-## PART 2: CLI 자동화 도구
+## CLI 자동화 도구
 
 ```mermaid
 graph TD
@@ -538,7 +538,7 @@ if __name__ == "__main__":
 
 ---
 
-## PART 3: 웹 스크래핑 자동화
+## 웹 스크래핑 자동화
 
 ### 패턴 1: httpx + BeautifulSoup
 
@@ -751,7 +751,7 @@ if __name__ == '__main__':
 
 ---
 
-## PART 4: 파일 감시 자동화
+## 파일 감시 자동화
 
 ```mermaid
 graph LR
@@ -939,7 +939,7 @@ observer.start()
 
 ---
 
-## PART 5: 작업 큐 자동화
+## 작업 큐 자동화
 
 ### Dramatiq으로 비동기 작업 처리
 
@@ -1009,7 +1009,7 @@ generate_report.send({'id': 123, 'email': 'user@example.com'})
 
 ---
 
-## PART 6: 알림 자동화
+## 알림 자동화
 
 ### 패턴 1: Slack 알림
 
@@ -1238,16 +1238,16 @@ services:
 
 ---
 
-## 요약
+## 마무리
 
-이 가이드로 구축한 자동화 시스템:
+여기 나온 패턴들은 실제로 자주 쓰는 것들입니다. APScheduler로 스케줄링하고, watchdog로 파일 감시하고, Playwright로 웹 스크래핑하는 건 대부분의 자동화 프로젝트에서 필요한 기능들이에요.
 
-✅ **스케줄링**: APScheduler로 시간 기반 자동화
-✅ **CLI**: click/typer로 명령줄 인터페이스
-✅ **스크래핑**: httpx + Playwright로 웹 데이터 수집
-✅ **파일 감시**: watchdog로 실시간 파일 처리
-✅ **작업 큐**: dramatiq로 비동기 작업 처리
-✅ **알림**: Slack 통합으로 실시간 알림
+처음엔 간단하게 시작하세요:
+- 스케줄링만 필요하면 APScheduler만 써도 충분
+- CLI 도구는 click이 typer보다 더 널리 쓰임 (typer는 더 현대적이긴 함)
+- 웹 스크래핑은 일단 httpx + BeautifulSoup로 시도하고, JavaScript 렌더링이 필요하면 Playwright 도입
+
+작업 큐(dramatiq)는 규모가 커지면 필요한데, 처음부터 넣으면 오히려 복잡해질 수 있습니다. 단순한 스케줄링으로 버틸 수 있으면 그게 더 나아요.
 
 ---
 
