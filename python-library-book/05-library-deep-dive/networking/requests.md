@@ -57,9 +57,9 @@ data = response.json()
 | 유지보수 | 최소한 | 적극적 |
 
 **권장 사항:**
-- - 새 프로젝트: httpx 사용
-- - 기존 프로젝트: requests 유지 가능
-- - 비동기 필요: httpx로 마이그레이션
+- 새 프로젝트: httpx 사용
+- 기존 프로젝트: requests 유지 가능
+- 비동기 필요: httpx로 마이그레이션
 
 ---
 
@@ -480,21 +480,21 @@ with httpx.Client(headers={'Authorization': 'Bearer token'}) as client:
 ### 1. 타임아웃 설정 안함
 
 ```python
-# 나쁜 예 나쁜 예 - 무한 대기 가능
+# ❌ 나쁜 예 - 무한 대기 가능
 response = requests.get('https://slow-api.example.com/data')
 
-# 좋은 예: 좋은 예
+# ✅ 좋은 예
 response = requests.get('https://slow-api.example.com/data', timeout=5)
 ```
 
 ### 2. 세션 미사용
 
 ```python
-# 나쁜 예 나쁜 예 - 매번 TCP 연결
+# ❌ 나쁜 예 - 매번 TCP 연결
 for i in range(100):
     requests.get(f'https://api.example.com/users/{i}')
 
-# 좋은 예: 좋은 예 - 연결 재사용
+# ✅ 좋은 예 - 연결 재사용
 session = requests.Session()
 for i in range(100):
     session.get(f'https://api.example.com/users/{i}')
@@ -503,11 +503,11 @@ for i in range(100):
 ### 3. 에러 처리 없음
 
 ```python
-# 나쁜 예 나쁜 예
+# ❌ 나쁜 예
 response = requests.get('https://api.example.com/data')
 data = response.json()
 
-# 좋은 예: 좋은 예
+# ✅ 좋은 예
 try:
     response = requests.get('https://api.example.com/data', timeout=5)
     response.raise_for_status()
@@ -519,12 +519,12 @@ except requests.RequestException as e:
 ### 4. 스트리밍 미사용
 
 ```python
-# 나쁜 예 나쁜 예 - 대용량 파일은 메모리 부족
+# ❌ 나쁜 예 - 대용량 파일은 메모리 부족
 response = requests.get('https://example.com/huge-file.zip')
 with open('file.zip', 'wb') as f:
     f.write(response.content)
 
-# 좋은 예: 좋은 예 - 청크 단위 처리
+# ✅ 좋은 예 - 청크 단위 처리
 with requests.get('https://example.com/huge-file.zip', stream=True) as r:
     with open('file.zip', 'wb') as f:
         for chunk in r.iter_content(chunk_size=8192):
@@ -537,18 +537,18 @@ with requests.get('https://example.com/huge-file.zip', stream=True) as r:
 
 ### requests 사용 적합:
 
-- - 완전 동기 코드
-- - 기존 프로젝트 (이미 requests 사용 중)
-- - 간단한 스크립트
-- - 레거시 시스템 호환성
+- 완전 동기 코드
+- 기존 프로젝트 (이미 requests 사용 중)
+- 간단한 스크립트
+- 레거시 시스템 호환성
 
 ### httpx로 전환 고려:
 
-- - 비동기 I/O 필요 (FastAPI, asyncio)
-- - 여러 API 동시 호출
-- - HTTP/2 필요
-- - 새 프로젝트
-- - 장기 유지보수 예정
+- 비동기 I/O 필요 (FastAPI, asyncio)
+- 여러 API 동시 호출
+- HTTP/2 필요
+- 새 프로젝트
+- 장기 유지보수 예정
 
 ---
 
@@ -653,15 +653,15 @@ logging.getLogger().setLevel(logging.DEBUG)
 ## 요약
 
 ### requests의 강점:
-- - 매우 직관적인 API
-- - 풍부한 생태계 (캐싱, OAuth 등)
-- - 검증된 안정성
-- - 광범위한 커뮤니티 지원
+- 매우 직관적인 API
+- 풍부한 생태계 (캐싱, OAuth 등)
+- 검증된 안정성
+- 광범위한 커뮤니티 지원
 
 ### requests의 한계:
-- - 미지원: 비동기 미지원
-- - 미지원: HTTP/2 미지원
-- - 미지원: 최소한의 유지보수
+- 미지원: 비동기 미지원
+- 미지원: HTTP/2 미지원
+- 미지원: 최소한의 유지보수
 
 ### 2026년 권장사항:
 - **새 프로젝트**: httpx 사용
