@@ -2,7 +2,6 @@
 
 > **파이썬 테스팅의 사실상 표준**
 
-⭐ **2026 추천** | 🧪 테스팅 | 🔌 플러그인 생태계 | 📊 상세한 리포트
 
 ---
 
@@ -57,12 +56,12 @@ def test_add():
 ```
 
 **pytest의 장점:**
-- ✅ `assert` 문만으로 충분 (self.assertEqual 불필요)
-- ✅ 클래스 없이 함수만으로 테스트
-- ✅ 자동 테스트 발견
-- ✅ 상세한 실패 메시지
-- ✅ Fixture 시스템
-- ✅ 풍부한 플러그인 생태계
+- - `assert` 문만으로 충분 (self.assertEqual 불필요)
+- - 클래스 없이 함수만으로 테스트
+- - 자동 테스트 발견
+- - 상세한 실패 메시지
+- - Fixture 시스템
+- - 풍부한 플러그인 생태계
 
 ---
 
@@ -456,7 +455,7 @@ def test_create_user(client):
 
 ## 함정 및 주의사항
 
-### ❌ 함정 1: Fixture Scope 실수
+### - 미지원: 함정 1: Fixture Scope 실수
 
 ```python
 # 나쁨: 데이터가 테스트 간 공유됨
@@ -478,7 +477,7 @@ def mutable_data():
     return []  # 매 테스트마다 새로 생성
 ```
 
-### ❌ 함정 2: Assert 메시지 오용
+### - 미지원: 함정 2: Assert 메시지 오용
 
 ```python
 # 나쁨: assert 메시지는 거의 필요없음
@@ -496,7 +495,7 @@ def test_complex():
     assert is_valid(data), f"Invalid data: {data}"
 ```
 
-### ❌ 함정 3: 테스트 순서 의존
+### - 미지원: 함정 3: 테스트 순서 의존
 
 ```python
 # 나쁨: 테스트 순서에 의존
@@ -568,7 +567,7 @@ $ pytest --durations=10
 | 특징 | pytest | unittest |
 |------|--------|----------|
 | 문법 | 간결 | 장황 |
-| 클래스 필요 | ❌ | ✅ |
+| 클래스 필요 | - 미지원: | - |
 | Assert | assert | self.assertEqual |
 | Fixture | 강력 | setUp/tearDown |
 | 생태계 | 풍부 | 제한적 |

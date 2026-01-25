@@ -34,14 +34,14 @@ graph TD
 
 | 시나리오 | 도구 | 사용 예시 | 2026 권장 |
 |----------|------|----------|-----------|
-| **스케줄링** | APScheduler | 매일 아침 리포트 생성 | ⭐ |
-| **CLI 도구** | click / typer | 명령줄 인터페이스 | ⭐ |
-| **웹 스크래핑** | httpx + bs4 | 데이터 수집 | ⭐ |
-| **브라우저 자동화** | playwright | 웹 테스트, 크롤링 | ⭐ |
-| **파일 감시** | watchdog | 파일 변경 시 자동 처리 | ⭐ |
-| **작업 큐** | dramatiq | 비동기 작업 처리 | ⭐ |
-| **원격 실행** | fabric | 원격 서버 작업 | ✅ |
-| **워크플로우** | Dagster | 복잡한 자동화 체인 | ⭐ |
+| **스케줄링** | APScheduler | 매일 아침 리포트 생성 | - 2026 권장: |
+| **CLI 도구** | click / typer | 명령줄 인터페이스 | - 2026 권장: |
+| **웹 스크래핑** | httpx + bs4 | 데이터 수집 | - 2026 권장: |
+| **브라우저 자동화** | playwright | 웹 테스트, 크롤링 | - 2026 권장: |
+| **파일 감시** | watchdog | 파일 변경 시 자동 처리 | - 2026 권장: |
+| **작업 큐** | dramatiq | 비동기 작업 처리 | - 2026 권장: |
+| **원격 실행** | fabric | 원격 서버 작업 | - |
+| **워크플로우** | Dagster | 복잡한 자동화 체인 | - 2026 권장: |
 
 ---
 
@@ -386,7 +386,7 @@ def sync(source, dest, pattern, dry_run):
     dest_path = Path(dest)
 
     if not source_path.exists():
-        click.secho(f"❌ 소스 디렉토리가 없습니다: {source}", fg='red')
+        click.secho(f"- 미지원: 소스 디렉토리가 없습니다: {source}", fg='red')
         return
 
     files = list(source_path.glob(pattern))
@@ -402,7 +402,7 @@ def sync(source, dest, pattern, dry_run):
             import shutil
             shutil.copy2(file, dest_path / file.name)
 
-    click.secho(f"✅ {len(files)}개 파일 동기화 완료", fg='green')
+    click.secho(f"- {len(files)}개 파일 동기화 완료", fg='green')
 
 @cli.command()
 @click.argument('url')
@@ -417,7 +417,7 @@ def fetch(url, output, format):
         response = httpx.get(url, timeout=30)
 
     if response.status_code != 200:
-        click.secho(f"❌ HTTP {response.status_code}", fg='red')
+        click.secho(f"- 미지원: HTTP {response.status_code}", fg='red')
         return
 
     if format == 'json':
@@ -427,7 +427,7 @@ def fetch(url, output, format):
     elif format == 'text':
         output.write(response.text)
 
-    click.secho(f"✅ 데이터 저장 완료", fg='green')
+    click.secho(f"- 데이터 저장 완료", fg='green')
 
 @cli.command()
 @click.option('--days', default=7, help='처리할 일수')
@@ -445,7 +445,7 @@ def process(days, verbose):
         for day in bar:
             time.sleep(0.1)  # 시뮬레이션
 
-    click.secho("✅ 처리 완료", fg='green')
+    click.secho("- 처리 완료", fg='green')
 
 @cli.command()
 def status():
@@ -496,11 +496,11 @@ def convert(
     """파일 형식 변환"""
 
     if not input_file.exists():
-        typer.secho(f"❌ 파일이 없습니다: {input_file}", fg=typer.colors.RED)
+        typer.secho(f"- 미지원: 파일이 없습니다: {input_file}", fg=typer.colors.RED)
         raise typer.Exit(1)
 
     if output_file and output_file.exists() and not overwrite:
-        typer.secho(f"⚠️  파일이 이미 존재합니다: {output_file}", fg=typer.colors.YELLOW)
+        typer.secho(f"- 레거시:  파일이 이미 존재합니다: {output_file}", fg=typer.colors.YELLOW)
         if not typer.confirm("덮어쓰시겠습니까?"):
             raise typer.Exit()
 
@@ -509,7 +509,7 @@ def convert(
     # 변환 로직
     # ...
 
-    typer.secho("✅ 변환 완료", fg=typer.colors.GREEN)
+    typer.secho("- 변환 완료", fg=typer.colors.GREEN)
 
 @app.command()
 def batch(
@@ -525,7 +525,7 @@ def batch(
     with ThreadPoolExecutor(max_workers=workers) as executor:
         results = list(executor.map(process_file, files))
 
-    typer.secho(f"✅ {len(results)}개 파일 처리 완료", fg=typer.colors.GREEN)
+    typer.secho(f"- {len(results)}개 파일 처리 완료", fg=typer.colors.GREEN)
 
 def process_file(file: Path):
     """파일 처리"""

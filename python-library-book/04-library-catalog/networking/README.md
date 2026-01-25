@@ -4,11 +4,11 @@
 
 | 라이브러리 | 등급 | 분야 | 설명 |
 |-----------|------|------|------|
-| **httpx** | ⭐ | HTTP | 비동기 HTTP 클라이언트 |
-| **websockets** | ⭐ | WebSocket | 웹소켓 서버/클라이언트 |
-| **scrapy** | ⭐ | 크롤링 | 웹 크롤링 프레임워크 |
-| **playwright** | ⭐ | 브라우저 자동화 | 헤드리스 브라우저 (Selenium 대체) |
-| **paramiko** | ⭐ | SSH | SSH 프로토콜 구현 |
+| **httpx** | - 2026 권장: | HTTP | 비동기 HTTP 클라이언트 |
+| **websockets** | - 2026 권장: | WebSocket | 웹소켓 서버/클라이언트 |
+| **scrapy** | - 2026 권장: | 크롤링 | 웹 크롤링 프레임워크 |
+| **playwright** | - 2026 권장: | 브라우저 자동화 | 헤드리스 브라우저 (Selenium 대체) |
+| **paramiko** | - 2026 권장: | SSH | SSH 프로토콜 구현 |
 
 ---
 

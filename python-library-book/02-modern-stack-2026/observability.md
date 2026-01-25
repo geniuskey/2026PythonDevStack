@@ -4,9 +4,9 @@
 
 | 도구 | 등급 | 역할 |
 |------|------|------|
-| `structlog` | ⭐ | 구조화 로깅 |
-| `opentelemetry` | ⭐ | 분산 추적 (tracing) |
-| `prometheus-client` | ⭐ | 메트릭 수집 |
+| `structlog` | - 2026 권장: | 구조화 로깅 |
+| `opentelemetry` | - 2026 권장: | 분산 추적 (tracing) |
+| `prometheus-client` | - 2026 권장: | 메트릭 수집 |
 
 ---
 
