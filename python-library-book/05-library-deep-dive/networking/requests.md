@@ -45,7 +45,7 @@ data = response.json()
 
 ---
 
-## - 레거시: 2026년 주의사항
+## 레거시 2026년 주의사항
 
 ### 왜 레거시인가?
 
@@ -480,21 +480,21 @@ with httpx.Client(headers={'Authorization': 'Bearer token'}) as client:
 ### 1. 타임아웃 설정 안함
 
 ```python
-# - 미지원: 나쁜 예 - 무한 대기 가능
+# 나쁜 예 나쁜 예 - 무한 대기 가능
 response = requests.get('https://slow-api.example.com/data')
 
-# - 좋은 예
+# 좋은 예: 좋은 예
 response = requests.get('https://slow-api.example.com/data', timeout=5)
 ```
 
 ### 2. 세션 미사용
 
 ```python
-# - 미지원: 나쁜 예 - 매번 TCP 연결
+# 나쁜 예 나쁜 예 - 매번 TCP 연결
 for i in range(100):
     requests.get(f'https://api.example.com/users/{i}')
 
-# - 좋은 예 - 연결 재사용
+# 좋은 예: 좋은 예 - 연결 재사용
 session = requests.Session()
 for i in range(100):
     session.get(f'https://api.example.com/users/{i}')
@@ -503,11 +503,11 @@ for i in range(100):
 ### 3. 에러 처리 없음
 
 ```python
-# - 미지원: 나쁜 예
+# 나쁜 예 나쁜 예
 response = requests.get('https://api.example.com/data')
 data = response.json()
 
-# - 좋은 예
+# 좋은 예: 좋은 예
 try:
     response = requests.get('https://api.example.com/data', timeout=5)
     response.raise_for_status()
@@ -519,12 +519,12 @@ except requests.RequestException as e:
 ### 4. 스트리밍 미사용
 
 ```python
-# - 미지원: 나쁜 예 - 대용량 파일은 메모리 부족
+# 나쁜 예 나쁜 예 - 대용량 파일은 메모리 부족
 response = requests.get('https://example.com/huge-file.zip')
 with open('file.zip', 'wb') as f:
     f.write(response.content)
 
-# - 좋은 예 - 청크 단위 처리
+# 좋은 예: 좋은 예 - 청크 단위 처리
 with requests.get('https://example.com/huge-file.zip', stream=True) as r:
     with open('file.zip', 'wb') as f:
         for chunk in r.iter_content(chunk_size=8192):

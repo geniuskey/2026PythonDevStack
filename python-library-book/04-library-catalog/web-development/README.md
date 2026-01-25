@@ -6,16 +6,16 @@
 
 | 라이브러리 | 등급 | 한 줄 설명 |
 |-----------|------|-----------|
-| **FastAPI** | - 2026 권장: | 현대적 비동기 웹 프레임워크, 자동 문서화 |
-| **Django** | - 2026 권장: | 전체 솔루션 웹 프레임워크 (ORM, Admin, Auth) |
+| **FastAPI** | Yes | 현대적 비동기 웹 프레임워크, 자동 문서화 |
+| **Django** | Yes | 전체 솔루션 웹 프레임워크 (ORM, Admin, Auth) |
 | **Flask** | - 레거시: | 경량 웹 프레임워크 (마이크로서비스, 간단한 API) |
-| **Starlette** | - 2026 권장: | FastAPI의 기반, ASGI 프레임워크 |
+| **Starlette** | Yes | FastAPI의 기반, ASGI 프레임워크 |
 
 ### 2. HTTP 클라이언트
 
 | 라이브러리 | 등급 | 한 줄 설명 |
 |-----------|------|-----------|
-| **httpx** | - 2026 권장: | 비동기 HTTP 클라이언트, requests 호환 API |
+| **httpx** | Yes | 비동기 HTTP 클라이언트, requests 호환 API |
 | **requests** | - 레거시: | 동기 HTTP 클라이언트 (여전히 좋지만 async 미지원) |
 | **aiohttp** | - 레거시: | 비동기 HTTP (httpx가 더 직관적) |
 
@@ -23,9 +23,9 @@
 
 | 라이브러리 | 등급 | 한 줄 설명 |
 |-----------|------|-----------|
-| **uvicorn** | - 2026 권장: | ASGI 서버 (FastAPI 표준) |
-| **gunicorn** | - 2026 권장: | WSGI 서버 (Django, Flask) |
-| **hypercorn** | - 2026 권장: | ASGI 서버 (HTTP/2, HTTP/3 지원) |
+| **uvicorn** | Yes | ASGI 서버 (FastAPI 표준) |
+| **gunicorn** | Yes | WSGI 서버 (Django, Flask) |
+| **hypercorn** | Yes | ASGI 서버 (HTTP/2, HTTP/3 지원) |
 
 ---
 

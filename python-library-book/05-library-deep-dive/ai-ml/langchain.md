@@ -51,10 +51,10 @@ response = openai.ChatCompletion.create(
 result = response.choices[0].message.content
 
 # 문제:
-# - 프롬프트 관리 어려움
-# - 문서 검색 통합 복잡
-# - 메모리/히스토리 관리 수동
-# - 에러 처리 반복
+# 좋은 예: 프롬프트 관리 어려움
+# 좋은 예: 문서 검색 통합 복잡
+# 좋은 예: 메모리/히스토리 관리 수동
+# 좋은 예: 에러 처리 반복
 ```
 
 ### LangChain 방식
@@ -542,10 +542,10 @@ os.environ["LANGCHAIN_PROJECT"] = "my-project"
 result = chain.invoke({"input": "question"})
 
 # LangSmith UI에서 확인:
-# - 각 단계별 실행 시간
-# - 입력/출력
-# - 토큰 사용량
-# - 에러 트레이싱
+# 좋은 예: 각 단계별 실행 시간
+# 좋은 예: 입력/출력
+# 좋은 예: 토큰 사용량
+# 좋은 예: 에러 트레이싱
 ```
 
 ---

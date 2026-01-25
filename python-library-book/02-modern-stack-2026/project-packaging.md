@@ -13,10 +13,10 @@
 
 | 도구 | 등급 | 역할 | 대체 |
 |------|------|------|------|
-| `uv` | - 2026 권장: | 초고속 패키지 관리자 | pip, pipenv, poetry |
-| `pyproject.toml` | - 2026 권장: | 통합 설정 파일 | setup.py, requirements.txt |
-| `build` | - 2026 권장: | 패키지 빌드 도구 | setuptools 직접 사용 |
-| `twine` | - 2026 권장: | PyPI 업로드 | - |
+| `uv` | Yes | 초고속 패키지 관리자 | pip, pipenv, poetry |
+| `pyproject.toml` | Yes | 통합 설정 파일 | setup.py, requirements.txt |
+| `build` | Yes | 패키지 빌드 도구 | setuptools 직접 사용 |
+| `twine` | Yes | PyPI 업로드 | - |
 
 ---
 
@@ -612,14 +612,14 @@ $ uv run twine upload dist/*
 ### 1. 항상 pyproject.toml 사용
 
 ```toml
-# - 좋음: 모든 설정 한 곳에
+# 좋은 예: 좋음: 모든 설정 한 곳에
 [project]
 dependencies = [...]
 
 [tool.ruff]
 line-length = 88
 
-# - 미지원: 나쁨: 파편화된 설정
+# 나쁜 예 나쁨: 파편화된 설정
 # requirements.txt
 # .flake8
 # setup.py
