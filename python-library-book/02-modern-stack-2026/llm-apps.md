@@ -4,10 +4,10 @@
 
 | 도구 | 등급 | 역할 |
 |------|------|------|
-| `langchain` / `llamaindex` | ⭐ | LLM 애플리케이션 프레임워크 |
-| `chromadb` / `pinecone` | ⭐ | 벡터 데이터베이스 |
-| `openai` / `anthropic` | ⭐ | LLM API 클라이언트 |
-| `tiktoken` | ⭐ | 토큰 카운팅 |
+| `langchain` / `llamaindex` | Yes | LLM 애플리케이션 프레임워크 |
+| `chromadb` / `pinecone` | Yes | 벡터 데이터베이스 |
+| `openai` / `anthropic` | Yes | LLM API 클라이언트 |
+| `tiktoken` | Yes | 토큰 카운팅 |
 
 ---
 

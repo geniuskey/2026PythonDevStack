@@ -13,10 +13,10 @@
 
 | 도구 | 등급 | 역할 | 대체 |
 |------|------|------|------|
-| `uv` | ⭐ | 초고속 패키지 관리자 | pip, pipenv, poetry |
-| `pyproject.toml` | ⭐ | 통합 설정 파일 | setup.py, requirements.txt |
-| `build` | ⭐ | 패키지 빌드 도구 | setuptools 직접 사용 |
-| `twine` | ⭐ | PyPI 업로드 | - |
+| `uv` | Yes | 초고속 패키지 관리자 | pip, pipenv, poetry |
+| `pyproject.toml` | Yes | 통합 설정 파일 | setup.py, requirements.txt |
+| `build` | Yes | 패키지 빌드 도구 | setuptools 직접 사용 |
+| `twine` | Yes | PyPI 업로드 | - |
 
 ---
 
@@ -26,7 +26,7 @@
 
 [`uv`](https://github.com/astral-sh/uv)는 **Rust로 작성된 초고속 파이썬 패키지 관리자**입니다.
 
-### 왜 ⭐ 인가?
+### 왜 - 2026 권장: 인가?
 
 **속도가 압도적입니다**
 
@@ -39,11 +39,11 @@ uv: 1-2초  ← 10-100배 빠름
 
 **기능이 완전합니다**
 
-- ✅ 패키지 설치 (pip 대체)
-- ✅ 가상환경 관리 (venv 대체)
-- ✅ 의존성 해결 (poetry 대체)
-- ✅ 프로젝트 초기화 (cookiecutter 대체)
-- ✅ `pyproject.toml` 완벽 지원
+- - 패키지 설치 (pip 대체)
+- - 가상환경 관리 (venv 대체)
+- - 의존성 해결 (poetry 대체)
+- - 프로젝트 초기화 (cookiecutter 대체)
+- - `pyproject.toml` 완벽 지원
 
 ### 설치
 
@@ -612,14 +612,14 @@ $ uv run twine upload dist/*
 ### 1. 항상 pyproject.toml 사용
 
 ```toml
-# ✅ 좋음: 모든 설정 한 곳에
+# 좋은 예: 좋음: 모든 설정 한 곳에
 [project]
 dependencies = [...]
 
 [tool.ruff]
 line-length = 88
 
-# ❌ 나쁨: 파편화된 설정
+# 나쁜 예 나쁨: 파편화된 설정
 # requirements.txt
 # .flake8
 # setup.py

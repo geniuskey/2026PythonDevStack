@@ -4,10 +4,10 @@
 
 | 도구 | 등급 | 역할 |
 |------|------|------|
-| `pytest` | ⭐ | 테스팅 프레임워크 |
-| `pytest-asyncio` | ⭐ | 비동기 테스트 지원 |
-| `hypothesis` | ⭐ | 속성 기반 테스트 |
-| `coverage` | ⭐ | 코드 커버리지 측정 |
+| `pytest` | Yes | 테스팅 프레임워크 |
+| `pytest-asyncio` | Yes | 비동기 테스트 지원 |
+| `hypothesis` | Yes | 속성 기반 테스트 |
+| `coverage` | Yes | 코드 커버리지 측정 |
 
 ---
 

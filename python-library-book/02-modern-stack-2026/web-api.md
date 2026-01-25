@@ -4,10 +4,10 @@
 
 | 도구 | 등급 | 역할 |
 |------|------|------|
-| `FastAPI` | ⭐ | 현대적 웹 프레임워크 |
-| `pydantic` | ⭐ | 데이터 검증 & 직렬화 |
-| `uvicorn` | ⭐ | ASGI 서버 |
-| `httpx` | ⭐ | HTTP 클라이언트 (테스트용) |
+| `FastAPI` | Yes | 현대적 웹 프레임워크 |
+| `pydantic` | Yes | 데이터 검증 & 직렬화 |
+| `uvicorn` | Yes | ASGI 서버 |
+| `httpx` | Yes | HTTP 클라이언트 (테스트용) |
 
 ---
 

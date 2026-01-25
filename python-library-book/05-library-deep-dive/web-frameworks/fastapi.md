@@ -2,7 +2,6 @@
 
 > **2026년 파이썬 웹 API 개발의 표준**
 
-⭐ **2026 추천** | 🌐 웹 프레임워크 | 🚀 비동기 | 📚 자동 문서화
 
 ---
 
@@ -91,10 +90,10 @@ async def create_item(item: Item):
 ```
 
 **타입 힌트로 얻는 것:**
-- ✅ 자동 데이터 검증
-- ✅ 자동 직렬화/역직렬화
-- ✅ 자동 API 문서 생성
-- ✅ IDE 자동완성 및 타입 체크
+- - 자동 데이터 검증
+- - 자동 직렬화/역직렬화
+- - 자동 API 문서 생성
+- - IDE 자동완성 및 타입 체크
 
 ### 2. 의존성 주입 (Dependency Injection)
 
@@ -517,7 +516,7 @@ async def info(settings: Settings = Depends(get_settings)):
 
 ## 함정 및 주의사항
 
-### ❌ 함정 1: 동기 함수를 async로 잘못 사용
+### - 미지원: 함정 1: 동기 함수를 async로 잘못 사용
 
 ```python
 # 나쁨: blocking 작업을 async로 선언
@@ -539,7 +538,7 @@ async def best_endpoint():
     return {"done": True}
 ```
 
-### ❌ 함정 2: Pydantic 모델 재사용 실수
+### - 미지원: 함정 2: Pydantic 모델 재사용 실수
 
 ```python
 # 나쁨: DB 모델과 API 모델 혼용
@@ -569,7 +568,7 @@ async def create_user(user: UserCreate):
     return user_db
 ```
 
-### ❌ 함정 3: 의존성에서 예외 처리 누락
+### - 미지원: 함정 3: 의존성에서 예외 처리 누락
 
 ```python
 # 나쁨: 에러가 500으로 반환됨
@@ -586,7 +585,7 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
     return user
 ```
 
-### ❌ 함정 4: 대용량 파일 메모리 로드
+### - 미지원: 함정 4: 대용량 파일 메모리 로드
 
 ```python
 # 나쁨: 전체 파일을 메모리에
@@ -675,9 +674,9 @@ gunicorn myapi.main:app \
 
 | 특징 | FastAPI | Flask |
 |------|---------|-------|
-| 비동기 | ✅ 네이티브 | ⚠️ 확장 필요 |
-| 타입 안전 | ✅ | ❌ |
-| 자동 문서 | ✅ | ❌ (수동) |
+| 비동기 | - 네이티브 | - 레거시: 확장 필요 |
+| 타입 안전 | - | - 미지원: |
+| 자동 문서 | - | - 미지원: (수동) |
 | 성능 | 🚀 매우 빠름 | 보통 |
 | 학습 곡선 | 중간 | 낮음 |
 | 생태계 | 빠르게 성장 | 성숙 |
@@ -693,8 +692,8 @@ gunicorn myapi.main:app \
 |------|---------|-----|
 | 속도 | 🚀 | 느림 |
 | ORM | 선택적 | Django ORM 필수 |
-| Admin | ❌ | ✅ |
-| 전체 스택 | ❌ | ✅ |
+| Admin | - 미지원: | - |
+| 전체 스택 | - 미지원: | - |
 | 적합 용도 | API 전용 | 전체 웹 앱 |
 
 **Django를 선택할 때:**

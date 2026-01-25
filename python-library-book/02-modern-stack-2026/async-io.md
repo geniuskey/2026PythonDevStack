@@ -4,9 +4,9 @@
 
 | 도구 | 등급 | 역할 |
 |------|------|------|
-| `asyncio` | ⭐ | 표준 비동기 라이브러리 |
-| `httpx` | ⭐ | 비동기 HTTP 클라이언트 |
-| `aiofiles` | ⭐ | 비동기 파일 I/O |
+| `asyncio` | Yes | 표준 비동기 라이브러리 |
+| `httpx` | Yes | 비동기 HTTP 클라이언트 |
+| `aiofiles` | Yes | 비동기 파일 I/O |
 
 ---
 
